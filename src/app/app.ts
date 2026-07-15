@@ -8,4 +8,8 @@ import { Component, signal } from '@angular/core';
 })
 export class App {
   protected readonly title = signal('pizzeria');
+
+  cambiarTitulo(nuevoTitulo: string){
+    this.title.set(nuevoTitulo);
+  }
 }
