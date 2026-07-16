@@ -7,7 +7,7 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('pizzeria');
+  protected readonly title = signal('Pizzeria');
 
   cambiarTitulo(nuevoTitulo: string){
     this.title.set(nuevoTitulo);
