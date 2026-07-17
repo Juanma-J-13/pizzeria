@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col">Nombre</th>
+            <th class="col">Precio</th>
+            <th class="col">Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (pizza of pizzas; track pizza.name) {
+            <tr>
+                <td>
+                    <img [src]="pizza.image" [alt]="pizza.name">
+                </td>
+                <td>{{ pizza.name }}</td>
+                <td>{{ pizza.price }}</td>
+                <td>{{ pizza.stock }}</td>
+            </tr>
+        }
+    </tbody>
+</table>
