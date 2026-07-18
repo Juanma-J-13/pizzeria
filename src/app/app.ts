@@ -8,8 +8,10 @@ import { Component, signal } from '@angular/core';
 })
 export class App {
   protected readonly title = signal('Pizzeria');
-
-  cambiarTitulo(nuevoTitulo: string){
-    this.title.set(nuevoTitulo);
-  }
+  /** 
+  ES PARA CAMBIAR EL TITULO EN EL INPUT DE APP.HTML
+    cambiarTitulo(nuevoTitulo: string){
+      this.title.set(nuevoTitulo);
+    }
+  */
 }

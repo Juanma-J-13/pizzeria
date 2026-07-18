@@ -14,25 +14,25 @@ export class PizzasList {
       name: 'Muzzarella',
       price: 1000,
       stock: false,
-      image:'assets/img/muzza.jpeg',
+      image:'../assets/muzzarella.jpg',
     },
     {
       name: 'Napolitana',
       price: 1001,
       stock: true,
-      image: 'assets/img/napo.jpeg'
+      image: '../assets/napolitana.jpg',
     },
     {
       name: 'Jamón y Morrón',
       price: 1002,
       stock: true,
-      image: 'assets/img/jym.jpeg'
+      image: '../assets/JyM.jpg',
     },
     {
       name: 'Fugazzetta',
       price: 1003,
       stock: true,
-      image: 'assets/img/fuga.jpeg'
+      image: '../assets/fugazzeta.jpg',
     }
   ];
 }
