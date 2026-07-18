@@ -1,6 +1,6 @@
 <div class="d-flex flex-column min-vh-100">
 
-  @if(!mostrarPagina){
+@if(!mostrarPagina){
     <div class="fondo-selector">
       <app-sucursal-selector
         [sucursal]="sucursalElegida"
@@ -50,10 +50,19 @@
       </div>-->
       <div class="container">
         <div class="row">
-          <div class="col-8">
-            <app-pizzas-list></app-pizzas-list>
+          <div class="col-9">
+            <app-pizzas-list
+              (agregarAlCarrito)="agregarCarrito($event)">
+            </app-pizzas-list>
           </div>
-          <div class="col-4">Carrito de Compras</div>
+
+          <div class="col-3">
+            <app-carrito-compras
+              [carrito]="carrito"
+              (eliminar)="eliminarPizza($event)"
+              (vaciar)="vaciarCarrito()">
+            </app-carrito-compras>
+          </div>
         </div>
       </div>
     </main>
@@ -61,4 +70,5 @@
 
     <footer class="bg-dark text-white text-center py-4 mt-5">{{ title() }} 2026 - Tandil</footer>
   }
+
 </div>

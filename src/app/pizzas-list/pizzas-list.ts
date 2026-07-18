@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import {Pizza} from '../models/pizza';
 
 @Component({
@@ -9,6 +9,14 @@ import {Pizza} from '../models/pizza';
 })
 
 export class PizzasList {
+
+  @Output()
+    agregarAlCarrito = new EventEmitter<Pizza>();
+
+  agregar(pizza: Pizza){
+    this.agregarAlCarrito.emit(pizza);
+  }
+
   sumar(pizza: Pizza){
     pizza.quantity++;       
   }
@@ -18,15 +26,19 @@ export class PizzasList {
     }
   }
 
-  subtotal(pizza: Pizza): number{
-    return pizza.price * pizza.quantity;
+  subtotal(pizza: Pizza): number | null{
+    if(pizza.stock){
+      return pizza.price * pizza.quantity;
+    }
+      return null;
+    
   }
 
   pizzas: Pizza[] = [
     {
       name: 'Muzzarella',
       price: 1000,
-      stock: false,
+      stock: true,
       image:'../assets/muzzarella.jpg',
       quantity: 0
     },
@@ -40,7 +52,7 @@ export class PizzasList {
     {
       name: 'Jamón y Morrón',
       price: 1002,
-      stock: true,
+      stock: false,
       image: '../assets/JyM.jpg',
       quantity: 0
     },

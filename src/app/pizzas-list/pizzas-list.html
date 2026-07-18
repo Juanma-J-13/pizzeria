@@ -6,7 +6,7 @@
             <th class="col">Precio</th>
             <th class="col">Stock</th>
             <th class="col">Compra</th>
-            <th class="col">Subtotal</th>
+            <th class="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -30,9 +30,10 @@
                     <button (click)="sumar(pizza)" class="btn btn-warning btn-sm">+</button>
                 </td>
                 <td>
-                    @if(pizza.quantity>0){
-                        {{ subtotal(pizza) }}
-                    }
+                   <button (click)="agregar(pizza)" class="btn btn-warning"
+                   [disabled]="!pizza.stock || pizza.quantity == 0">
+                        agregar al carrito
+                   </button>
                 </td>
             </tr>
         }

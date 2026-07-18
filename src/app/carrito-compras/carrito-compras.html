@@ -1,0 +1,36 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col">Pizza</th>
+            <th class="col">Cantidad</th>
+            <th class="col">Subtotal</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(pizza of carrito; track pizza.name){
+            @if(pizza.quantity>0){
+                <tr>
+                    <td> {{ pizza.name }} </td>
+                    <td> {{ pizza.quantity }} </td>
+                    <td> {{ subtotal(pizza) }} </td>
+                    <td>
+                        <button
+                            (click)="eliminarPizza(pizza)" class="btn btn-secondary btn-sm"
+                        >🗑</button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<h2>Total: ${{total()}}</h2>
+<button 
+    (click)="vaciarCarrito()"  class="btn btn-light" >
+    Vaciar Carrito
+</button>
+<button
+    class="btn btn-warning">
+    Confirmar Compra
+</button>
+
