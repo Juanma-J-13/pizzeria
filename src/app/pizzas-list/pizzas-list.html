@@ -1,20 +1,39 @@
 <table class="table">
     <thead>
         <tr>
+            <th class="col"></th>
             <th class="col">Nombre</th>
             <th class="col">Precio</th>
             <th class="col">Stock</th>
+            <th class="col">Compra</th>
+            <th class="col">Subtotal</th>
         </tr>
     </thead>
     <tbody>
         @for (pizza of pizzas; track pizza.name) {
             <tr>
                 <td>
-                    <img [src]="pizza.image" [alt]="pizza.name">
+                    <img width="100" class="img-thumbail" [src]="pizza.image" [alt]="pizza.name">
                 </td>
                 <td>{{ pizza.name }}</td>
                 <td>{{ pizza.price }}</td>
-                <td><span class="badge text-bg-warning">{{ pizza.stock }}</span></td>
+                <td>
+                    @if(!pizza.stock){
+                         <span class="badge text-bg-warning">Sin Stock</span>
+                    }@else{
+                        <span class="badge text-bg-success">En Stock</span>
+                    }
+                </td>
+                <td>
+                    <button (click)="restar(pizza)" class="btn btn-warning btn-sm">-</button>
+                    {{ pizza.quantity }}
+                    <button (click)="sumar(pizza)" class="btn btn-warning btn-sm">+</button>
+                </td>
+                <td>
+                    @if(pizza.quantity>0){
+                        {{ subtotal(pizza) }}
+                    }
+                </td>
             </tr>
         }
     </tbody>

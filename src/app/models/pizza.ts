@@ -3,4 +3,5 @@ export interface Pizza{
     price: number;
     stock: boolean;
     image: string;
+    quantity:number
 }

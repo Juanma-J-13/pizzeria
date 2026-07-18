@@ -1,51 +1,64 @@
 <div class="d-flex flex-column min-vh-100">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">{{ title() }}</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Sucursales
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Av España 1234</a></li>
-              <li><a class="dropdown-item" href="#">Pinto 1234</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <main class="container flex-grow-1 mt-3">
-    <!--ESTE INPUT ES GENERADO PARA HACER UN EJEMPLO DE COMUNICACIÓN ENTRE EL COMPONENTE Y EL TEMPLATEURL. ES A MODO DE EJEMPLO PERO ME PARECIÓ CURIOSO DEJARLO. BÁSICAMENTE ACTUALIZA EL VALOR DEL TITLE AL INSTANTE QUE ESCRIBÍS EN EL INPUT.
-    <div class="cont-title">
-      <h1>{{ title() }}</h1>
-      <input 
-        #titulo
-        type="text"
-        (input)="cambiarTitulo(titulo.value)">
-    </div>-->
-    <div class="container">
-      <div class="row">
-        <div class="col-8">
-          <app-pizzas-list></app-pizzas-list>
+  @if(!mostrarPagina){
+    <div class="fondo-selector">
+      <app-sucursal-selector
+        [sucursal]="sucursalElegida"
+        (changeSucursal)="elegirSucursal($event)">
+      </app-sucursal-selector> 
+    </div>
+  }@else{
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">{{ title() }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contacto</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sucursales
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item btn btn-warning" href="#" (click)="sucursalElegida = 'Av España 1234'">Av España 1234</a></li>
+                <li><a class="dropdown-item btn btn-warning" href="#" (click)="sucursalElegida = 'Pinto 1234'">Pinto 1234</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
-        <div class="col-4">Carrito de Compras</div>
+        <div>
+          <span> {{ sucursalElegida }} </span>
+        </div>
       </div>
-    </div>
-  </main>
+    </nav>
+
+    <main class="container flex-grow-1 mt-3">
+      <!--ESTE INPUT ES GENERADO PARA HACER UN EJEMPLO DE COMUNICACIÓN ENTRE EL COMPONENTE Y EL TEMPLATEURL. ES A MODO DE EJEMPLO PERO ME PARECIÓ CURIOSO DEJARLO. BÁSICAMENTE ACTUALIZA EL VALOR DEL TITLE AL INSTANTE QUE ESCRIBÍS EN EL INPUT.
+      <div class="cont-title">
+        <h1>{{ title() }}</h1>
+        <input 
+          #titulo
+          type="text"
+          (input)="cambiarTitulo(titulo.value)">
+      </div>-->
+      <div class="container">
+        <div class="row">
+          <div class="col-8">
+            <app-pizzas-list></app-pizzas-list>
+          </div>
+          <div class="col-4">Carrito de Compras</div>
+        </div>
+      </div>
+    </main>
 
 
-  <footer class="bg-dark text-white text-center py-4 mt-5">{{ title() }} 2026 - Tandil</footer>
+    <footer class="bg-dark text-white text-center py-4 mt-5">{{ title() }} 2026 - Tandil</footer>
+  }
 </div>
