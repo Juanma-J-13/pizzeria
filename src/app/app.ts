@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { Pizza } from './models/pizza';
+
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,14 @@ import { Pizza } from './models/pizza';
 export class App {
   protected readonly title = signal('Pervis Pizzeria');
 
-  carrito: Pizza[] = [];
-
   mostrarPagina = false;
   sucursalElegida = "";
 
+  elegirSucursal(nombre: string){
+    this.sucursalElegida = nombre;
+    this.mostrarPagina = true;
+  }
+  /** carrito: Pizza[] = [];  * 
   agregarCarrito(pizza: Pizza){
     if(pizza.quantity == 0){
       return;
@@ -42,16 +45,5 @@ export class App {
   }
   vaciarCarrito(){
     this.carrito = [];
-  }
-
-  elegirSucursal(nombre: string){
-    this.sucursalElegida = nombre;
-    this.mostrarPagina = true;
-  }
-  /** 
-  ES PARA CAMBIAR EL TITULO EN EL INPUT DE APP.HTML
-    cambiarTitulo(nuevoTitulo: string){
-      this.title.set(nuevoTitulo);
-    }
-  */
+  }*/
 }

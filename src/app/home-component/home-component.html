@@ -1,1 +1,18 @@
-<p>home-component works!</p>
+    <div class="container">
+    <div class="row">
+        <div class="col-9">
+        <app-pizzas-list
+            (agregarAlCarrito)="agregarCarrito($event)">
+        </app-pizzas-list>
+        </div>
+
+        <div class="col-3">
+        <app-carrito-compras
+            [carrito]="carrito"
+            (eliminar)="eliminarPizza($event)"
+            (vaciar)="vaciarCarrito()"
+            (confirmar)="confirmarCompra()">
+        </app-carrito-compras>
+        </div>
+    </div> 
+    </div>

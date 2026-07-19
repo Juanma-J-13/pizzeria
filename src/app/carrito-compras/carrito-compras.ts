@@ -16,12 +16,17 @@ export class CarritoCompras {
     eliminar = new EventEmitter<Pizza>();
   @Output()
     vaciar = new EventEmitter<void>();
+  @Output()
+    confirmar = new EventEmitter<void>();
   
   eliminarPizza(pizza: Pizza){
     this.eliminar.emit(pizza);
   }
   vaciarCarrito(){
     this.vaciar.emit();
+  }
+  confirmarCompra(){
+    this.confirmar.emit();
   }
 
   total(): number{
