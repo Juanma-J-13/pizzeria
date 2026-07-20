@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import {Pizza} from '../models/pizza';
-import { pizza } from '../services/pizza';
+import { PizzaService } from '../services/pizza';
 
 @Component({
   selector: 'app-pizzas-list',
@@ -10,10 +10,11 @@ import { pizza } from '../services/pizza';
 })
 
 export class PizzasList implements OnInit {
-  pizzas: Pizza[] = [];
-  constructor(private pizzaService: pizza){}
   @Output()
     agregarAlCarrito = new EventEmitter<Pizza>();
+
+  pizzas: Pizza[] = [];
+  constructor(private pizzaService: PizzaService){}
 
   ngOnInit(): void {
       this.pizzas = this.pizzaService.getPizzas(); 
@@ -39,5 +40,4 @@ export class PizzasList implements OnInit {
       return null;
     
   }
-
 }

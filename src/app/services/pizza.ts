@@ -2,9 +2,9 @@ import { Service } from '@angular/core';
 import { Pizza } from '../models/pizza';
 
 @Service()
-export class pizza {
+export class PizzaService {
 
-    pizzas: Pizza[] = [
+    private pizzas: Pizza[] = [
     {
       name: 'Muzzarella',
       price: 1000,
