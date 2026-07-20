@@ -12,6 +12,8 @@ import { Pizza } from '../models/pizza';
 
 export class HomeComponent {
   carrito: Pizza[] = [];
+  mostrarPagina = false;
+  sucursalElegida = "";
   constructor(private router: Router){}
 
   agregarCarrito(pizza: Pizza){
@@ -43,6 +45,10 @@ export class HomeComponent {
   }
   confirmarCompra(){
     this.router.navigate(['/contacto']);
+  }
+  elegirSucursal(nombre: string){
+    this.sucursalElegida = nombre;
+    this.mostrarPagina = true;
   }
 
 }

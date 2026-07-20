@@ -1,13 +1,5 @@
 <div class="d-flex flex-column min-vh-100">
 
-@if(!mostrarPagina){
-    <div class="fondo-selector">
-      <app-sucursal-selector
-        [sucursal]="sucursalElegida"
-        (changeSucursal)="elegirSucursal($event)">
-      </app-sucursal-selector> 
-    </div>
-  }@else{
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">{{ title() }}</a>
@@ -27,14 +19,14 @@
                 Sucursales
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item btn btn-warning" href="#" (click)="sucursalElegida = 'Av España 1234'">Av España 1234</a></li>
-                <li><a class="dropdown-item btn btn-warning" href="#" (click)="sucursalElegida = 'Pinto 1234'">Pinto 1234</a></li>
+                <li><a class="dropdown-item btn btn-warning" href="#" >Av España 1234</a></li>
+                <li><a class="dropdown-item btn btn-warning" href="#" >Pinto 1234</a></li>
               </ul>
             </li>
           </ul>
         </div>
         <div>
-          <span> {{ sucursalElegida }} </span>
+        <!--<span> {{ sucursalElegida }} </span>-->
         </div>
       </div>
     </nav>
@@ -45,6 +37,6 @@
 
 
     <footer class="bg-dark text-white text-center py-4 mt-5">{{ title() }} 2026 - Tandil</footer>
-  }
+  
 
 </div>

@@ -1,0 +1,13 @@
+input:hover{
+    border-color: black;
+}
+input:focus{
+  outline: none;
+  border-color: black;
+  box-shadow: 2px 2px 5px rgba(255, 202, 44, 0.5);
+}
+select:focus{
+    outline:none;
+    border-color: #000;
+    box-shadow: 2px 2px 5px rgba(255, 202, 44, 0.5);
+}

@@ -8,6 +8,7 @@ import { SucursalSelector } from './sucursal-selector/sucursal-selector';
 import { CarritoCompras } from './carrito-compras/carrito-compras';
 import { HomeComponent } from './home-component/home-component';
 import { ContactoComponent } from './contacto-component/contacto-component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ContactoComponent } from './contacto-component/contacto-component';
     HomeComponent,
     ContactoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule,ReactiveFormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideClientHydration()],
   bootstrap: [App],
 })

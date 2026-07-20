@@ -1,3 +1,11 @@
+@if(!mostrarPagina){
+    <div class="fondo-selector">
+        <app-sucursal-selector (changeSucursal)="elegirSucursal($event)">
+        </app-sucursal-selector>
+    </div>
+
+}@else{
+    
     <div class="container">
     <div class="row">
         <div class="col-9">
@@ -16,3 +24,4 @@
         </div>
     </div> 
     </div>
+}
