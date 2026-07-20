@@ -26,12 +26,11 @@
 </table>
 <h2>Total: ${{total()}}</h2>
 <button 
-    (click)="vaciarCarrito()"  class="btn btn-light" >
+    (click)="vaciarCarrito()"  class="btn btn-light">
     Vaciar Carrito
 </button>
 <button
-    class="btn btn-warning"
-    (click)="confirmarCompra()">
+    class="btn btn-warning" (click)="confirmarCompra()" [disabled]="carrito.length === 0">
     Confirmar Compra
 </button>
 
